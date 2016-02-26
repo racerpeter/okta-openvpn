@@ -204,7 +204,7 @@ class OktaAPIAuth:
 
             res = None
             for factor in rv['_embedded']['factors']:
-                if factor['factorType'] != "token:software:totp":
+                if factor['factorType'] != "token:software:totp" and factor['factorType'] != "token:hardware":
                     continue
                 fid = factor['id']
                 state_token = rv['stateToken']
